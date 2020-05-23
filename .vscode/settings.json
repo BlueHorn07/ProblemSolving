@@ -1,0 +1,24 @@
+{
+    "files.associations": {
+        "cmath": "cpp",
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "stdio.h": "c",
+        "unordered_map": "cpp",
+        "cstdio": "cpp",
+        "vector": "cpp",
+        "initializer_list": "cpp",
+        "list": "cpp",
+        "type_traits": "cpp",
+        "xhash": "cpp",
+        "xstring": "cpp",
+        "xutility": "cpp",
+        "array": "cpp",
+        "string_view": "cpp",
+        "utility": "cpp",
+        "queue": "cpp",
+        "deque": "cpp",
+        "algorithm": "cpp",
+        "tuple": "cpp"
+    }
+}

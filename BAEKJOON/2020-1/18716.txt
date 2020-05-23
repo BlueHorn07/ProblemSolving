@@ -1,0 +1,45 @@
+mov D A
+shr D 3
+
+mov B D
+not B
+
+mov C B
+shl C 1
+or B C
+
+mov C B
+shl C 2
+or B C
+
+mov C B
+shl C 4
+or B C
+
+mov C B
+shl C 8
+or B C
+
+mov C B
+shl C 16
+or B C
+
+mov C B
+shl C 32
+or B C
+
+and D B
+
+mov C B
+shl C 1
+not C
+and B C
+
+or D B
+
+shl D 3
+
+shl A 61
+shr A 61
+
+or A D
