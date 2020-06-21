@@ -1,55 +1,46 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
 import sys
+import codecs
 
-class TRIE:
-    # 배열이 아니라 dict으로 각 알파벳을 관리!
-    head = {}
-    def __init__(self):
-        self.head = {}
+sys.stdin = codecs.getreader("utf-8")(sys.stdin.detach())
+sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
 
-    def add(self, word):
-        cur = self.head
+T = int(sys.stdin.readline().rstrip())
 
-        for ch in word:
-            if ch not in cur:
-                cur[ch] = {}
-            cur = cur[ch]
-        cur['*'] = True
+import random
 
-    def search(self, word):
-        cur = self.head
-        for ch in word:
-            if ch not in cur:
-                if '*' in cur:
-                    return True
-                return False
-            else:
-                cur = cur[ch]
-        if '*' in cur:
-            return True
-        else:
-            if len(cur) != 0:
-                return True
-            else:
-                return False
-    def size_print(self):
-        print("+++++++ size is ", len(self.head))
+for t in range(T):
+    songs = sys.stdin.readline().rstrip().split('\t')
 
-if __name__ == "__main__":
-    T = int(sys.stdin.readline().rstrip())
+    artists = sys.stdin.readline().rstrip().split('\t')
 
-    for t in range(T):
-        Trie = TRIE()
-        N = int(sys.stdin.readline().rstrip())
-        isConsistent = True
-        for i in range(N):
-            word = list(sys.stdin.readline().rstrip())
-            if(isConsistent):
-                if(Trie.search(word)):
-                    isConsistent = False
-                else:
-                    Trie.add(word)
+    dic = {}
+    max_num_songs = 0
+    for i in range(len(artists)):
+        artist = artists[i]
+        if artist not in dic:
+            dic[artist] = []
+        
+        dic[artist].append(songs[i])
+        if(max_num_songs < len(dic[artist])):
+            max_num_songs = len(dic[artist])
+            max_num_artist = artist
+    
+    dummy = 'dummy'
+    song_matrix = []
+    for artist in list(dic.keys()):
+        for _ in range(max_num_songs - len(dic[artist])):
+            dic[artist].append(dummy)
+        song_matrix.append(dic[artist])
+    
 
-        if(isConsistent):
-            print("YES")
-        else:
-            print("NO")
+    for artist in list(dic.keys()):
+        print(len(dic[artist]))
+    
+
+    random.shuffle(songs)
+    print('\t'.join(songs))
+    
+
+
