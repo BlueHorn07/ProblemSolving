@@ -1,8 +1,5 @@
 #include<bits/stdc++.h>
 
-// #include <cstdio>
-// #include <vector>
-
 using namespace std;
 #define MAX 11
 
